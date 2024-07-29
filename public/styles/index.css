@@ -1,0 +1,148 @@
+body{ 
+  font-family: 'Courier New', Courier, monospace;
+}
+.todo-app {
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.header-container2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.text-left {
+  font-weight: bold;
+  font-size: 35px;
+  margin: 0;
+}
+.text-center {
+  font-weight: bold;
+  font-size: 35px;
+  margin: 5px;
+  align-items: center;
+}
+.hidden {
+  display: none;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 130px;
+}
+.btn-cancel {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+
+
+.form-group1 {
+  margin-top: 20px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3px;
+}
+
+#edit-button {
+  color: white;
+  font-weight: bold;
+  background-color: slategray;
+  border: #f8f9fa;
+}
+
+#add-button{
+  background: #000;
+  border: white;
+}
+.todo-number {
+  background-color: black;
+  color: white;
+  border-radius: 3.5px;
+  width: 40px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  font-weight: bold;
+  
+}
+
+.todo-title {
+  display: flex;
+  flex: 1;
+  font-weight: bold;
+  margin-right: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.form-group2 {
+  width: 100%;
+  margin-top: 1px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  margin-bottom: 5px;
+}
+
+.todo-details {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+}
+#add-button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 10px; /* Adjust the margin to align the button */
+}
+
+.btn {
+  background-color: black;
+  color: white;
+  border: white;
+
+}
+
+.modal-title {
+  font-weight: bold;
+}
+@media (max-width: 980px) {
+  
+  .todo-app {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      box-shadow: none;
+      border-radius: 0;
+  }
+}

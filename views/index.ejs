@@ -1,0 +1,97 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <div class="todo-app mt-5">
+    <% if (toDoList && toDoList.length === 0) { %>
+        <div class="header-container">
+            <h3 class="text-center">Todo App</h3> 
+        </div>
+        <form action="/submit" method="POST">
+            <div class="form-group">
+                <input type="text" class="form-control" name="title" placeholder="Enter todo title" id="title" required>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="details" rows="3" placeholder="Enter todo details" required></textarea>
+            </div>
+            <div class="d-flex justify-content-between">
+                <input type="submit" class="btn btn-primary" value="ADD" id="add-button"/> 
+                <!-- <input type="submit" class="btn btn-cancel" action="/cancel" method="POST" value="Cancel"></button> clear function -->
+            </div>
+      </form>
+    <% } else { %>
+        <div class="header-container2">
+            <h3 class="text-left">Todo App</h3>
+            <button class="btn btn-warning" data-toggle="modal" data-target="#editModal2" >Add</button> 
+        </div>
+        <div class="modal fade" id="editModal2" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editModalLabel">Add To-Do</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/submit" method="POST">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="title" placeholder="Enter todo title" id="title" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="details" rows="3" placeholder="Enter todo details" required></textarea>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                <input type="submit" class="btn btn-primary" value="ADD" id="add-button"/> 
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+   <%  } %>
+      
+      <% if(toDoList && toDoList.length > 0) { %>
+        <% toDoList.forEach(data => { %>
+            <div class="todo-container">
+                <div class="form-group1">
+                    <div class="todo-number">  <%= data.indexNumber %>.
+                    </div>
+                    <div class="todo-title"><%= data.title %></div>
+                    <button class="btn btn-warning" data-toggle="modal" data-target="#editModal" onclick="populateEditForm('<%= data.indexNumber %>', '<%= data.title %>', '<%= data.details %>')" id="edit-button">EDIT</button> 
+                </div>
+                <div class="form-group2">
+                    <div class="todo-details"><%= data.details %></textarea>
+                </div>
+            </div>
+        <% })%>
+            
+      <% } %>
+      <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit To-Do</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="edit-form" action="/edit" method="POST">
+                        <input type="hidden" name="indexNumber" id="edit-index">
+                        <div class="form-group">
+                            <label for="edit-title">Title</label>
+                            <input type="text" class="form-control" name="title" id="edit-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-details">Details</label>
+                            <input type="text" class="form-control" name="details" id="edit-details" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>
